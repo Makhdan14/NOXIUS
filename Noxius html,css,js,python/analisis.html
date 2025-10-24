@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NOXIUS | Analisis</title>
+    <link rel="stylesheet" href="analisis.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="shortcut icon" typ="x-icon" href="img/NoxiusLogoCrop.png">
+</head>
+<body>
+    <header class="header">
+    <div id="username-display" class="username-display"></div>
+    <button class="hamburger" id="hamburger">&#9776;</button>
+
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <img src="img/NoxiusLogoCrop.png" alt="Logo" class="sidebar-logo">
+            <button class="close-btn" id="closeSidebar">&times;</button>
+        </div>
+        <ul class="sidebar-menu">
+            <li><a href="dashboard.html"><i class="fas fa-home"></i> Dashboard</a></li>
+            <li><a href="inventory.html"><i class="fas fa-boxes"></i> Manajemen Inventory</a></li>
+            <li><a href="penjualan.html"><i class="fas fa-cash-register"></i> Penjualan & POS</a></li>
+            <li><a href="analisis.html"><i class="fas fa-chart-line"></i> Analisis Keuangan</a></li>
+            <li><a href="karyawan.html"><i class="fas fa-users"></i> Manajemen Karyawan</a></li>
+            <li><a href="NoxAi.html"><img src="img/NoxAiLogo.png" alt="NoxAI" class="sidebar-icon"> NoxAI Chat</a></li>
+        </ul>
+        <div class="sidebar-footer">
+            <a href="login.html" class="login-btn">Login / Register</a>
+        </div>
+    </div>
+
+
+    </header>
+
+    <main class="container">
+         <div class="container">
+            <h1><i class="fas fa-chart-line"></i> Analisis Keuangan</h1>
+            <p>Laporan laba rugi, arus kas, dan prediksi otomatis untuk bisnis Anda.</p>
+        </div>
+
+        <nav class="tabs">
+            <button class="tab-btn active" data-tab="laba-rugi"><i class="fas fa-balance-scale"></i> Laba Rugi</button>
+            <button class="tab-btn" data-tab="arus-kas"><i class="fas fa-exchange-alt"></i> Arus Kas</button>
+            <button class="tab-btn" data-tab="prediksi"><i class="fas fa-crystal-ball"></i> Prediksi</button>
+        </nav>
+
+        <div class="reset-section">
+            <button id="resetBtn" class="btn-primary"><i class="fas fa-trash"></i> Reset Semua Data</button>
+        </div>
+
+        <section id="laba-rugi" class="tab-content active">
+            <h2>Laporan Laba Rugi Bulanan</h2>
+            <form id="labaForm">
+                <div class="form-group">
+                    <label>Bulan/Tahun:</label>
+                    <input type="month" id="bulan" required>
+                </div>
+                <div class="form-group">
+                    <label>Pendapatan (Rp):</label>
+                    <input type="number" id="pendapatan" min="0" placeholder="0" required>
+                </div>
+                <div class="form-group">
+                    <label>Biaya Operasional (Rp):</label>
+                    <input type="number" id="biaya" min="0" placeholder="0" required>
+                </div>
+                <button type="submit" class="btn-primary">Hitung Laba/Rugi</button>
+            </form>
+            <div id="labaResult" class="result hidden">
+                <h3>Hasil: <span id="labaValue"></span></h3>
+                <p id="labaDesc"></p>
+            </div>
+            <div id="labaList"></div>
+            <div id="inventoryValue" class="result">
+                <h3>Total Nilai Inventory: <span id="inventoryTotal">Rp 0</span></h3>
+                <p>Nilai aset berdasarkan stok dan harga per unit.</p>
+            </div>
+        </section>
+
+        <section id="arus-kas" class="tab-content hidden">
+            <h2>Arus Kas Harian</h2>
+            <form id="kasForm">
+                <div class="form-group">
+                    <label>Tanggal:</label>
+                    <input type="date" id="tanggal" required>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Cash In (Rp):</label>
+                        <input type="number" id="cashIn" min="0" placeholder="0">
+                    </div>
+                    <div class="form-group">
+                        <label>Cash Out (Rp):</label>
+                        <input type="number" id="cashOut" min="0" placeholder="0">
+                    </div>
+                </div>
+                <button type="submit" class="btn-primary">Tambah Transaksi</button>
+            </form>
+            <div id="kasBalance" class="balance">Balance Saat Ini: Rp 0</div>
+            <div id="kasList"></div>
+        </section>
+
+        <section id="prediksi" class="tab-content hidden">
+            <h2>Prediksi Keuangan Bulan Depan</h2>
+            <p>Berdasarkan data 3 bulan terakhir. Tambahkan data laba rugi dulu untuk akurasi.</p>
+            <button id="generatePrediksi" class="btn-primary">Generate Prediksi</button>
+            <div id="prediksiResult" class="result hidden">
+                <h3>Prediksi Profit Bulan Depan: <span id="prediksiValue"></span></h3>
+                <p id="prediksiDesc"></p>
+            </div>
+        </section>
+    </main>
+
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#5000ca" fill-opacity="1" d="M0,0L34.3,10.7C68.6,21,137,43,206,64C274.3,85,343,107,411,112C480,117,549,107,617,96C685.7,85,754,75,823,85.3C891.4,96,960,128,1029,149.3C1097.1,171,1166,181,1234,170.7C1302.9,160,1371,128,1406,112L1440,96L1440,320L1405.7,320C1371.4,320,1303,320,1234,320C1165.7,320,1097,320,1029,320C960,320,891,320,823,320C754.3,320,686,320,617,320C548.6,320,480,320,411,320C342.9,320,274,320,206,320C137.1,320,69,320,34,320L0,320Z"></path></svg>
+ 
+     <section id="kontak">
+    <footer>
+        <aside>
+          <p>&copy; Copyright 2025 by <span>Muhammad Akhdan.</span></p>
+        </aside>
+    </footer>
+    </section>
+
+    <script src="analisis.js"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> NOXIUS | Karyawan </title>
+    <link rel="stylesheet" href="karyawan.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="shortcut icon" typ="x-icon" href="img/NoxiusLogoCrop.png">
+</head>
+<body>
+    <header class="header">
+    <div id="username-display" class="username-display"></div>
+    <!-- Hamburger Button -->
+    <button class="hamburger" id="hamburger">&#9776;</button>
+
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <img src="img/NoxiusLogoCrop.png" alt="Logo" class="sidebar-logo">
+            <button class="close-btn" id="closeSidebar">&times;</button>
+        </div>
+        <ul class="sidebar-menu">
+            <li><a href="dashboard.html"><i class="fas fa-home"></i> Dashboard</a></li>
+            <li><a href="inventory.html"><i class="fas fa-boxes"></i> Manajemen Inventory</a></li>
+            <li><a href="penjualan.html"><i class="fas fa-cash-register"></i> Penjualan & POS</a></li>
+            <li><a href="analisis.html"><i class="fas fa-chart-line"></i> Analisis Keuangan</a></li>
+            <li><a href="karyawan.html"><i class="fas fa-users"></i> Manajemen Karyawan</a></li>
+            <li><a href="NoxAi.html"><img src="img/NoxAiLogo.png" alt="NoxAI" class="sidebar-icon"> NoxAI Chat</a></li>
+        </ul>
+        <div class="sidebar-footer">
+            <a href="login.html" class="login-btn">Login / Register</a>
+        </div>
+    </div>
+
+
+    </header>
+
+    <main class="container">
+        <div class="container">
+            <h1><i class="fas fa-users"></i> Manajemen Karyawan</h1>
+            <p>Kelola jadwal shift, payroll, dan evaluasi performa tim dengan mudah.</p>
+        </div>
+        <!-- Tab Navigation -->
+        <nav class="tabs">
+            <button class="tab-btn active" data-tab="shift"><i class="fas fa-clock"></i> Jadwal Shift</button>
+            <button class="tab-btn" data-tab="payroll"><i class="fas fa-money-bill-wave"></i> Payroll</button>
+            <button class="tab-btn" data-tab="evaluasi"><i class="fas fa-star"></i> Evaluasi Performa</button>
+        </nav>
+
+        <!-- Jadwal Shift Section -->
+        <section id="shift" class="tab-content active">
+            <h2>Jadwal Shift Harian</h2>
+            <p>Isi nama karyawan, tanggal, dan shift. Atau gunakan assign otomatis.</p>
+            <form id="shiftForm">
+                <div class="form-group">
+                    <label for="namaKaryawan">Nama Karyawan:</label>
+                    <input type="text" id="namaKaryawan" placeholder="Contoh: Budi Santoso" required>
+                </div>
+                <div class="form-group">
+                    <label for="tanggalShift">Tanggal:</label>
+                    <input type="date" id="tanggalShift" required>
+                </div>
+                <div class="form-group">
+                    <label for="shiftType">Jenis Shift:</label>
+                    <select id="shiftType" required>
+                        <option value="">Pilih Shift</option>
+                        <option value="Pagi (08:00-16:00, 8 jam)">Pagi</option>
+                        <option value="Siang (12:00-20:00, 8 jam)">Siang</option>
+                        <option value="Malam (16:00-00:00, 8 jam)">Malam</option>
+                    </select>
+                </div>
+            <button type="submit" class="btn-primary">Tambah Shift</button>
+            </form>
+            <br>
+            <button id="autoAssignBtn" class="btn-secondary">Assign Shift Otomatis (Minggu Ini)</button>
+            <button id="hapusShiftAll" class="btn-danger">Hapus Semua Shift</button>
+            <div id="shiftList" class="list-section"></div>
+        </section>
+
+        <!-- Payroll Section -->
+        <section id="payroll" class="tab-content hidden">
+            <h2>Payroll Gaji</h2>
+            <p>Asumsi: Rp 400.000 per shift penuh (8 jam). Tambah lembur Rp 50.000/jam. Hitung total bulanan.</p>
+            <form id="payrollForm">
+                <div class="form-group">
+                    <label for="namaPayroll">Nama Karyawan:</label>
+                    <input type="text" id="namaPayroll" placeholder="Contoh: Budi Santoso" required>
+                </div>
+                <div class="form-group">
+                    <label for="bulanPayroll">Bulan/Tahun:</label>
+                    <input type="month" id="bulanPayroll" required>
+                </div>
+                <div class="form-group">
+                    <label for="lemburJam">Jam Lembur (opsional):</label>
+                    <input type="number" id="lemburJam" min="0" placeholder="0" value="0">
+                </div>
+                <button type="submit" class="btn-primary">Hitung Gaji</button>
+            </form>
+            <button id="hapusPayrollAll" class="btn-danger">Hapus Semua Payroll</button>
+            <div id="payrollResult" class="result hidden"></div>
+            <div id="payrollList" class="list-section"></div>
+        </section>
+
+        <!-- Evaluasi Performa Section -->
+        <section id="evaluasi" class="tab-content hidden">
+            <h2>Evaluasi Performa Tim</h2>
+            <p>Beri rating 1-5 untuk karyawan (1: Buruk, 5: Luar Biasa). KPI: Produktivitas (dari penjualan), Absensi (dari shift).</p>
+            <form id="evaluasiForm">
+                <div class="form-group">
+                    <label for="namaEvaluasi">Nama Karyawan:</label>
+                    <input type="text" id="namaEvaluasi" placeholder="Contoh: Budi Santoso" required>
+                </div>
+                <div class="form-group">
+                    <label for="periode">Periode (misal Bulan):</label>
+                    <input type="text" id="periode" placeholder="Januari 2023" required>
+                </div>
+                <div class="form-group">
+                    <label for="rating">Rating (1-5):</label>
+                    <select id="rating" required>
+                        <option value="">Pilih Rating</option>
+                        <option value="1">1 - Buruk</option>
+                        <option value="2">2 - Cukup</option>
+                        <option value="3">3 - Baik</option>
+                        <option value="4">4 - Sangat Baik</option>
+                        <option value="5">5 - Luar Biasa</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="komentar">Komentar (opsional):</label>
+                    <textarea id="komentar" placeholder="Masukkan komentar evaluasi"></textarea>
+                </div>
+                <button type="submit" class="btn-primary">Simpan Evaluasi</button>
+            </form>
+            <button id="hapusEvaluasiAll" class="btn-danger">Hapus Semua Evaluasi</button>
+            <div id="evaluasiResult" class="result hidden"></div>
+            <div id="evaluasiList" class="list-section"></div>
+            <div id="timSummary" class="summary"></div>
+            <div id="dashboardPerforma" class="dashboard">
+                <h3>Dashboard Performa Tim</h3>
+                <div id="chartContainer"></div>
+            </div>
+        </section>
+    </main>
+
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#5000ca" fill-opacity="1" d="M0,0L34.3,10.7C68.6,21,137,43,206,64C274.3,85,343,107,411,112C480,117,549,107,617,96C685.7,85,754,75,823,85.3C891.4,96,960,128,1029,149.3C1097.1,171,1166,181,1234,170.7C1302.9,160,1371,128,1406,112L1440,96L1440,320L1405.7,320C1371.4,320,1303,320,1234,320C1165.7,320,1097,320,1029,320C960,320,891,320,823,320C754.3,320,686,320,617,320C548.6,320,480,320,411,320C342.9,320,274,320,206,320C137.1,320,69,320,34,320L0,320Z"></path></svg>
+ 
+    <section id="kontak">
+    <footer>
+        <aside>
+          <p>&copy; Copyright 2025 by <span>Muhammad Akhdan.</span></p>
+        </aside>
+    </footer>
+    </section>
+
+    <script src="karyawan.js"></script>
+
+
+</body>
+</html>

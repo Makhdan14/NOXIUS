@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" typ="x-icon" href="img/NoxiusLogoCrop.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> NOXIUS | NoxAI Chat</title>
+    <link rel="stylesheet" href="NoxAi.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+    <!-- Hamburger Button -->
+    <button class="hamburger" id="hamburger">&#9776;</button>
+    <div id="username-display" class="username-display"></div>
+
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <img src="img/NoxiusLogoCrop.png" alt="Logo" class="sidebar-logo">
+            <button class="close-btn" id="closeSidebar">&times;</button>
+        </div>
+        <ul class="sidebar-menu">
+            <li><a href="dashboard.html"><i class="fas fa-home"></i> Dashboard</a></li>
+            <li><a href="inventory.html"><i class="fas fa-boxes"></i> Manajemen Inventory</a></li>
+            <li><a href="penjualan.html"><i class="fas fa-cash-register"></i> Penjualan & POS</a></li>
+            <li><a href="analisis.html"><i class="fas fa-chart-line"></i> Analisis Keuangan</a></li>
+            <li><a href="karyawan.html"><i class="fas fa-users"></i> Manajemen Karyawan</a></li>
+            <li><a href="NoxAi.html"><img src="img/NoxAiLogo.png" alt="NoxAI" class="sidebar-icon"> NoxAI Chat</a></li>
+        </ul>
+        <div class="sidebar-footer">
+            <a href="login.html" class="login-btn">Login / Register</a>
+        </div>
+    </div>
+    <!-- Sidebar Overlay -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+
+    </header>
+
+    <main class="container">
+         <div class="container">
+            <h1><img src="img/NoxAiLogo.png" alt="NoxAI Logo" class="noxai-logo"> NoxAI Chat Assistant</h1>
+            <p>Tanyakan tentang manajemen inventory, analisis keuangan, keuangan global, atau minta tips bisnis.</p>
+        </div>
+
+        <div class="ai-container">
+            <div class="ai-header">
+                <div class="ai-avatar">
+                    <img src="img/NoxAiLogo.png" alt="NoxAI Logo" class="ai-logo">
+                </div>
+                <h2>Nox AI Assistant</h2>
+            </div>
+            <div id="aiChat" class="ai-chat">
+                <div class="chat-message message-ai">
+                    <div class="message-bubble">Halo! Saya Nox AI Assistant. Ada yang bisa saya bantu hari ini?</div>
+                    <div class="message-timestamp message-ai">12:00</div>
+                </div>
+            </div>
+            <div class="ai-input">
+                <input type="text" id="aiInput" placeholder="Ketik pesan Anda..." onkeypress="handleAIInput(event)" />
+                <button onclick="sendAIMessage()" style="background: #5000ca; color: white; border: none; padding: 12px 20px; border-radius: 25px; cursor: pointer;"><i class="fas fa-paper-plane"></i> Kirim</button>
+            </div>
+        </div>
+    </main>
+
+    <!-- SVG Untuk Memunculkan Efek Gelombang -->
+     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#5000ca" fill-opacity="1" d="M0,0L34.3,10.7C68.6,21,137,43,206,64C274.3,85,343,107,411,112C480,117,549,107,617,96C685.7,85,754,75,823,85.3C891.4,96,960,128,1029,149.3C1097.1,171,1166,181,1234,170.7C1302.9,160,1371,128,1406,112L1440,96L1440,320L1405.7,320C1371.4,320,1303,320,1234,320C1165.7,320,1097,320,1029,320C960,320,891,320,823,320C754.3,320,686,320,617,320C548.6,320,480,320,411,320C342.9,320,274,320,206,320C137.1,320,69,320,34,320L0,320Z"></path></svg>
+    <section id="kontak">
+    <footer>
+        <aside>
+          <p>&copy; Copyright 2025 by <span>Muhammad Akhdan.</span></p>
+        </aside>
+    </footer>
+    </section>
+
+    <script src="NoxAi.js"></script>
+
+
+</body>
+</html>

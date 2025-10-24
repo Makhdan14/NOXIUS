@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" type="x-icon" href="img/NoxiusLogoCrop.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> NOXIUS | Penjualan & POS </title>
+    <link rel="stylesheet" href="penjualan.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+<header>
+    <!-- Hamburger Button -->
+    <button class="hamburger" id="hamburger">&#9776;</button>
+    <div id="username-display" class="username-display"></div>
+
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <img src="img/NoxiusLogoCrop.png" alt="Logo" class="sidebar-logo">
+            <button class="close-btn" id="closeSidebar">&times;</button>
+        </div>
+        <ul class="sidebar-menu">
+            <li><a href="dashboard.html"><i class="fas fa-home"></i> Dashboard</a></li>
+            <li><a href="inventory.html"><i class="fas fa-boxes"></i> Manajemen Inventory</a></li>
+            <li><a href="penjualan.html"><i class="fas fa-cash-register"></i> Penjualan & POS</a></li>
+            <li><a href="analisis.html"><i class="fas fa-chart-line"></i> Analisis Keuangan</a></li>
+            <li><a href="karyawan.html"><i class="fas fa-users"></i> Manajemen Karyawan</a></li>
+            <li><a href="NoxAi.html"><img src="img/NoxAiLogo.png" alt="NoxAI" class="sidebar-icon"> NoxAI Chat</a></li>
+        </ul>
+        <div class="sidebar-footer">
+            <a href="login.html" class="login-btn">Login / Register</a>
+        </div>
+    </div>
+
+</header>
+
+    <main class="container">
+        <div class="pos-container">
+            <h1><i class="fas fa-cash-register"></i> Sistem Penjualan & POS</h1>
+            <p>Kelola transaksi penjualan dengan mudah dan cepat.</p>
+
+            <!-- Product List -->
+            <section class="product-section">
+                <h2>Daftar Produk</h2>
+                <div id="productList" class="product-grid">
+                    <!-- Products will be loaded here -->
+                </div>
+                <p id="emptyProductMsg" class="empty-message hidden">Belum ada produk. Tambahkan di Inventory terlebih dahulu!</p>
+            </section>
+
+            <!-- Cart Section -->
+            <section class="cart-section">
+                <h2>Keranjang Belanja</h2>
+                <div id="cartItems" class="cart-items">
+                    <!-- Cart items will be displayed here -->
+                </div>
+                <div id="emptyCartMsg" class="empty-message">Keranjang kosong. Tambahkan produk!</div>
+                <div class="cart-summary">
+                    <div class="summary-row">
+                        <span>Subtotal:</span>
+                        <span id="subtotal">Rp 0</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>PPN (10%):</span>
+                        <span id="tax">Rp 0</span>
+                    </div>
+                    <div class="summary-row total">
+                        <span>Total:</span>
+                        <span id="total">Rp 0</span>
+                    </div>
+                </div>
+                <div class="cart-actions">
+                    <button id="clearCartBtn" class="btn-secondary"><i class="fas fa-trash"></i> Kosongkan Keranjang</button>
+                    <button id="checkoutBtn" class="btn-primary"><i class="fas fa-credit-card"></i> Bayar</button>
+                </div>
+            </section>
+        </div>
+
+        <!-- Payment Modal -->
+        <div id="paymentModal" class="modal hidden">
+            <div class="modal-content">
+                <span class="close" id="closePaymentModal">&times;</span>
+                <h2>Pembayaran</h2>
+                <div class="payment-summary">
+                    <p>Total Tagihan: <span id="paymentTotal">Rp 0</span></p>
+                </div>
+                <form id="paymentForm">
+                    <div class="form-group">
+                        <label for="paymentMethod">Metode Pembayaran:</label>
+                        <select id="paymentMethod" required>
+                            <option value="cash">Tunai</option>
+                            <option value="card">Kartu</option>
+                            <option value="transfer">Transfer</option>
+                        </select>
+                    </div>
+                    <div class="form-group" id="cashReceivedGroup">
+                        <label for="cashReceived">Uang Diterima:</label>
+                        <input type="number" id="cashReceived" min="0" step="1000" placeholder="0">
+                        <p>Kembalian: <span id="change">Rp 0</span></p>
+                    </div>
+                    <button type="submit" class="btn-primary">Proses Pembayaran</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Receipt Modal -->
+        <div id="receiptModal" class="modal hidden">
+            <div class="modal-content receipt-content">
+                <span class="close" id="closeReceiptModal">&times;</span>
+                <h2>Struk Pembelian</h2>
+                <div id="receiptContent">
+                    <!-- Receipt will be generated here -->
+                </div>
+                <button id="printReceiptBtn" class="btn-primary"><i class="fas fa-print"></i> Cetak Struk</button>
+            </div>
+        </div>
+    </main>
+
+    <!-- SVG Untuk Memunculkan Efek Gelombang -->
+   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#5000ca" fill-opacity="1" d="M0,0L34.3,10.7C68.6,21,137,43,206,64C274.3,85,343,107,411,112C480,117,549,107,617,96C685.7,85,754,75,823,85.3C891.4,96,960,128,1029,149.3C1097.1,171,1166,181,1234,170.7C1302.9,160,1371,128,1406,112L1440,96L1440,320L1405.7,320C1371.4,320,1303,320,1234,320C1165.7,320,1097,320,1029,320C960,320,891,320,823,320C754.3,320,686,320,617,320C548.6,320,480,320,411,320C342.9,320,274,320,206,320C137.1,320,69,320,34,320L0,320Z"></path></svg>
+    <section id="kontak">
+    <footer>
+        <aside>
+          <p>&copy; Copyright 2025 by <span>Muhammad Akhdan.</span></p>
+        </aside>
+    </footer>
+    </section>
+
+    <script src="penjualan.js"></script>
+</body>
+</html>

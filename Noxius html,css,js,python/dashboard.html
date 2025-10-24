@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> NOXIUS | Memajukan UMKM</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="shortcut icon" typ="x-icon" href="img/NoxiusLogoCrop.png">
+</head>
+<body>
+<main>
+<header>
+    <!-- Hamburger Button -->
+    <button class="hamburger" id="hamburger">&#9776;</button>
+    <div id="username-display" class="username-display"></div>
+
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <img src="img/NoxiusLogoCrop.png" alt="Logo" class="sidebar-logo">
+            <button class="close-btn" id="closeSidebar">&times;</button>
+        </div>
+        <ul class="sidebar-menu">
+            <li><a href="dashboard.html"><i class="fas fa-home"></i> Dashboard</a></li>
+            <li><a href="inventory.html"><i class="fas fa-boxes"></i> Manajemen Inventory</a></li>
+            <li><a href="penjualan.html"><i class="fas fa-cash-register"></i> Penjualan & POS</a></li>
+            <li><a href="analisis.html"><i class="fas fa-chart-line"></i> Analisis Keuangan</a></li>
+            <li><a href="karyawan.html"><i class="fas fa-users"></i> Manajemen Karyawan</a></li>
+            <li><a href="NoxAi.html"><img src="img/NoxAiLogo.png" alt="NoxAI" class="sidebar-icon"> NoxAI Chat</a></li>
+        </ul>
+        <div class="sidebar-footer">
+            <a href="login.html" class="login-btn">Login / Register</a>
+        </div>
+    </div>
+
+</header>
+
+<!--Hero-->
+<div class="hero">
+    <div class="container">
+        <div class="hero-box">
+            <img src="img/NoxiusLogoCrop.png" alt="">
+            <h1>
+                Welcome to <span id="element"></span> <br>
+            Manajemen Usaha Terintegrasi</h1>
+        </div>
+    </div>
+</div>
+
+<!-- Waves -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#5000ca" fill-opacity="1" d="M0,32L80,64C160,96,320,160,480,165.3C640,171,800,117,960,117.3C1120,117,1280,171,1360,197.3L1440,224L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"></path></svg>
+<!-- Waves -->
+
+    <!--Dashboard Overview-->
+    <section id="dashboard-overview">
+    <div class="overview">
+        <div class="container">
+            <h1>Ringkasan Bisnis Anda</h1>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <i class="fas fa-boxes"></i>
+                    <h3>Total Inventory</h3>
+                    <p id="total-inventory">0</p>
+                    <a href="inventory.html" class="stat-link">Kelola Inventory</a>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-cash-register"></i>
+                    <h3>Penjualan & POS</h3>
+                    <p id="total-sales">Rp 0</p>
+                    <a href="penjualan.html" class="stat-link">Kelola Penjualan</a>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>Laba Bersih</h3>
+                    <p id="net-profit">Rp 0</p>
+                    <a href="analisis.html" class="stat-link">Lihat Analisis</a>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-users"></i>
+                    <h3>Total Karyawan</h3>
+                    <p id="total-employees">0</p>
+                    <a href="karyawan.html" class="stat-link">Kelola Karyawan</a>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-robot"></i>
+                    <h3>NoxAI Assistant</h3>
+                    <p>Tanya apa saja</p>
+                    <a href="NoxAi.html" class="stat-link">Chat Sekarang</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    </section>
+    <!--WAVES-->
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#5000ca" fill-opacity="1" d="M0,32L40,80C80,128,160,224,240,240C320,256,400,192,480,144C560,96,640,64,720,85.3C800,107,880,181,960,186.7C1040,192,1120,128,1200,122.7C1280,117,1360,171,1400,197.3L1440,224L1440,0L1400,0C1360,0,1280,0,1200,0C1120,0,1040,0,960,0C880,0,800,0,720,0C640,0,560,0,480,0C400,0,320,0,240,0C160,0,80,0,40,0L0,0Z"></path></svg>
+    
+    <!--Features-->
+    <section id="features">
+    <div class="features">
+        <div class="container">
+            <h1>Fitur Utama Manajemen Usaha</h1>
+            <p>Alat lengkap untuk mengelola bisnis UMKM Anda dengan mudah dan efisien.</p>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <i class="fas fa-boxes"></i>
+                    <h3>Manajemen Inventory</h3>
+                    <p>Pantau stok barang, tambah/hapus item, dan kelola persediaan secara real-time.</p>
+                    <a href="inventory.html" class="feature-btn">Akses Inventory</a>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-cash-register"></i>
+                    <h3>Penjualan & POS</h3>
+                    <p>Kelola transaksi penjualan harian dengan sistem POS yang intuitif, cepat, dan akurat untuk meningkatkan efisiensi bisnis Anda.</p>
+                    <a href="penjualan.html" class="feature-btn">Akses Penjualan</a>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>Analisis Keuangan</h3>
+                    <p>Hitung laba rugi, arus kas, dan prediksi keuangan masa depan.</p>
+                    <a href="analisis.html" class="feature-btn">Lihat Analisis</a>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-users"></i>
+                    <h3>Manajemen Karyawan</h3>
+                    <p>Kelola data karyawan, jadwal, dan performa tim Anda.</p>
+                    <a href="karyawan.html" class="feature-btn">Kelola Karyawan</a>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-robot"></i>
+                    <h3>NoxAI Chat</h3>
+                    <p>Dapatkan saran dan jawaban instan dari AI untuk pertanyaan bisnis Anda.</p>
+                    <a href="NoxAi.html" class="feature-btn">Chat dengan AI</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    </section>
+    <!--WAVES-->
+   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#5000ca" fill-opacity="1" d="M0,0L34.3,10.7C68.6,21,137,43,206,64C274.3,85,343,107,411,112C480,117,549,107,617,96C685.7,85,754,75,823,85.3C891.4,96,960,128,1029,149.3C1097.1,171,1166,181,1234,170.7C1302.9,160,1371,128,1406,112L1440,96L1440,320L1405.7,320C1371.4,320,1303,320,1234,320C1165.7,320,1097,320,1029,320C960,320,891,320,823,320C754.3,320,686,320,617,320C548.6,320,480,320,411,320C342.9,320,274,320,206,320C137.1,320,69,320,34,320L0,320Z"></path></svg>
+
+    <!--Benefits-->
+    <section id="benefits">
+    <div class="benefits">
+        <div class="container">
+            <h1>Manfaat untuk UMKM</h1>
+            <p>Mengapa Noxius adalah solusi terbaik untuk bisnis kecil dan menengah.</p>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <i class="fas fa-clock"></i>
+                    <h3>Hemat Waktu</h3>
+                    <p>Otomatisasi proses manajemen menghemat waktu Anda untuk fokus pada pertumbuhan bisnis.</p>
+                </div>
+                <div class="benefit-card">
+                    <i class="fas fa-money-bill-wave"></i>
+                    <h3>Optimalkan Keuangan</h3>
+                    <p>Analisis mendalam membantu Anda membuat keputusan keuangan yang lebih baik.</p>
+                </div>
+                <div class="benefit-card">
+                    <i class="fas fa-users-cog"></i>
+                    <h3>Kelola Tim Efisien</h3>
+                    <p>Sistem manajemen karyawan yang terorganisir meningkatkan produktivitas tim.</p>
+                </div>
+                <div class="benefit-card">
+                    <i class="fas fa-brain"></i>
+                    <h3>Bantuan AI Pintar</h3>
+                    <p>Dapatkan wawasan dan saran dari AI untuk mengembangkan bisnis Anda.</p>
+                </div>
+                <div class="benefit-card">
+                    <i class="fas fa-cash-register"></i>
+                    <h3>Penjualan & POS</h3>
+                    <p>Sistem POS yang cepat dan akurat membantu meningkatkan efisiensi penjualan, mengurangi kesalahan transaksi, dan mempercepat proses checkout untuk pengalaman pelanggan yang lebih baik.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    </section>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#5000ca" fill-opacity="1" d="M0,224L21.8,192C43.6,160,87,96,131,69.3C174.5,43,218,53,262,80C305.5,107,349,149,393,154.7C436.4,160,480,128,524,106.7C567.3,85,611,75,655,64C698.2,53,742,43,785,74.7C829.1,107,873,181,916,208C960,235,1004,213,1047,186.7C1090.9,160,1135,128,1178,122.7C1221.8,117,1265,139,1309,138.7C1352.7,139,1396,117,1418,106.7L1440,96L1440,0L1418.2,0C1396.4,0,1353,0,1309,0C1265.5,0,1222,0,1178,0C1134.5,0,1091,0,1047,0C1003.6,0,960,0,916,0C872.7,0,829,0,785,0C741.8,0,698,0,655,0C610.9,0,567,0,524,0C480,0,436,0,393,0C349.1,0,305,0,262,0C218.2,0,175,0,131,0C87.3,0,44,0,22,0L0,0Z"></path></svg>
+    <!-- Reviews Section -->
+    <section id="reviews">
+    <div class="reviews">
+        <div class="container">
+            <h1>Review Pengguna</h1>
+            <p>Apa kata pengguna kami tentang Noxius.</p>
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="review-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"Noxius sangat membantu mengelola inventory dan keuangan UMKM saya. Fitur AI-nya luar biasa!"</p>
+                    <h4>- Ahmad S., Pemilik Toko</h4>
+                </div>
+                <div class="review-card">
+                    <div class="review-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"Manajemen karyawan jadi lebih mudah. Dashboard yang intuitif dan fitur payroll yang akurat."</p>
+                    <h4>- Siti R., Manajer Restoran</h4>
+                </div>
+                <div class="review-card">
+                    <div class="review-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <p>"Analisis keuangan membantu saya membuat keputusan bisnis yang lebih baik. Recommended!"</p>
+                    <h4>- Budi K., Wirausaha</h4>
+                </div>
+                <div class="review-card">
+                    <div class="review-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"NoxAI memberikan saran yang berguna. Platform ini mengubah cara saya mengelola bisnis."</p>
+                    <h4>- Lina M., Pemilik Cafe</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+    </section>
+
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#5000ca" fill-opacity="1" d="M0,0L34.3,10.7C68.6,21,137,43,206,64C274.3,85,343,107,411,112C480,117,549,107,617,96C685.7,85,754,75,823,85.3C891.4,96,960,128,1029,149.3C1097.1,171,1166,181,1234,170.7C1302.9,160,1371,128,1406,112L1440,96L1440,320L1405.7,320C1371.4,320,1303,320,1234,320C1165.7,320,1097,320,1029,320C960,320,891,320,823,320C754.3,320,686,320,617,320C548.6,320,480,320,411,320C342.9,320,274,320,206,320C137.1,320,69,320,34,320L0,320Z"></path></svg>
+
+  <section id="kontak">
+    <footer>
+        <aside>
+          <p>&copy; Copyright 2025 by <span>Muhammad Akhdan.</span></p>
+        </aside>
+    </footer>
+    </section>
+</main>
+    <!--JS-->
+    <script src="dashboard.js"></script>
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+
+    <script>
+    var typed = new Typed('#element', {
+      strings: ["Website", "Noxius"],
+      typeSpeed: 300,
+      loop: true,
+      backSpeed: 100,
+      showCursor: false,
+      backDelay: 1000,
+    });
+  </script>
+
+
+</body>
+</html>
